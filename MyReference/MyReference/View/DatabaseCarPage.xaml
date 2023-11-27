@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MyReference.View.DatabaseCarPage"
+             xmlns:model="clr-namespace:MyReference.Model"
+             xmlns:viewmodel="clr-namespace:MyReference.ViewModel"
+             x:DataType="viewmodel:DatabaseCarViewModel"
+             Title="Admin Page">
+
+    <ScrollView>
+        <VerticalStackLayout>
+
+            <!-- On utilse pas le read On utilise que le Fill, Insert et Delete -->
+
+            <!-- <Button
+                Text="Read"
+                Command="{x:Binding Source={RelativeSource AncestorType={x:Type viewmodel:DatabaseCarViewModel}}, Path=ReadAccessCommand}"
+                IsEnabled="{Binding IsNotBusy}"
+                />  -->
+
+            <Button
+                Text="Show database content"
+                Command="{x:Binding Source={RelativeSource AncestorType={x:Type viewmodel:DatabaseCarViewModel}}, Path=FillFromDBCommand}"
+                IsEnabled="{Binding IsNotBusy}"
+                />
+
+            <Button
+                Text="Insert in database from JSON a file"
+                Command="{x:Binding Source={RelativeSource AncestorType={x:Type viewmodel:DatabaseCarViewModel}}, Path=FillInDbFromJsonCommand}"
+                IsEnabled="{Binding IsNotBusy}"
+                />
+
+            <Button
+                Text="Insert in database manually"
+                Command="{x:Binding Source={RelativeSource AncestorType={x:Type viewmodel:DatabaseCarViewModel}}, Path=FillInDbYourCarCommand}"
+                IsEnabled="{Binding IsNotBusy}"
+            />
+
+            <Button
+                Text="Delete a car from database"
+                Command="{x:Binding Source={RelativeSource AncestorType={x:Type viewmodel:DatabaseCarViewModel}}, Path=DeleteCarFromDbCommand}"
+                IsEnabled="{Binding IsNotBusy}"
+            />
+
+            <CollectionView ItemsSource="{Binding ShownList}" Grid.ColumnSpan="5">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="model:CarForDb">
+                        <Border>
+                            <Grid BackgroundColor="WhiteSmoke" ColumnDefinitions="*,*,*,*" Padding="5">
+                                <Label VerticalOptions="Center" HorizontalOptions="Center" Grid.Column="0" Text="{Binding VoitureID}" TextColor="Black"/>
+                                <Label VerticalOptions="Center" HorizontalOptions="Center" Grid.Column="1" Text="{Binding Marque}" TextColor="Black"/>
+                                <Label VerticalOptions="Center" HorizontalOptions="Center" Grid.Column="2" Text="{Binding Modele}" TextColor="Black"/>
+                                <Label VerticalOptions="Center" HorizontalOptions="Center" Grid.Column="3" Text="{Binding Annee }" TextColor="Black"/>
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

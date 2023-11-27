@@ -1,0 +1,18 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodel="clr-namespace:MyReference.ViewModel;assembly=MyReference"
+             x:Class="MyReference.View.AboutPage"
+             Title="About page">
+    <VerticalStackLayout>
+
+        <Label
+            Text="This application is Created by KIZILIRMAK Enes and FINDIK Fahrettin"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+
+        <Label
+            Text="Developed with .NET MAUI"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+    </VerticalStackLayout>
+</ContentPage>

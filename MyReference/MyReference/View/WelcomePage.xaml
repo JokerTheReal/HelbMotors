@@ -1,0 +1,38 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MyReference.View.WelcomePage"
+             Title="Welcome Page">
+    
+    
+    <ContentPage.Content>
+        <StackLayout Spacing="20" Padding="30">
+            <Label 
+                Text="Welcome to Helb Motors!"
+                FontSize="Large"
+                HorizontalOptions="Center"
+                VerticalOptions="Start"
+                FontFamily="calibri"
+                FontAttributes="Bold"/>
+            <Image Grid.Row="0" Aspect="AspectFit" Source="helb_logo.png" HeightRequest="300" WidthRequest="800" />
+
+
+            <StackLayout Orientation="Vertical" HorizontalOptions="CenterAndExpand">
+                <Button Text="Admin" 
+            Margin="0,10" 
+            WidthRequest="200" 
+            BackgroundColor="#15406B" 
+            TextColor="White" 
+            Command="{Binding GoToLoginPageCommand}"/>
+
+
+                <Button Text="Continue as guest" 
+            Margin="0,10" 
+            WidthRequest="200" 
+            BackgroundColor="#15406B" 
+            TextColor="White" 
+            Command="{Binding GoToMainPageCommand}"/>
+            </StackLayout>
+            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
